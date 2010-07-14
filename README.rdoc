@@ -17,6 +17,8 @@ Swagger marries the power and robustness of Resque with the trivial setup of del
    require 'swagger'
    Resque.swagger!
    Resque.connect_to_database(database)
+
+==== NOTE: This allows rails and the resque admin app to use the same initializer by executing at the console: resque-web config/initializers/resque.rb
     
 === 3. Create an active record migration
     
@@ -29,8 +31,6 @@ Swagger marries the power and robustness of Resque with the trivial setup of del
    add_index :resque_values, :key
    add_index :resque_values, [:key, :key_type]
 
-
-==== NOTE: To start up the administration sinatra app with swagger try: resque-web config/initializers/resque.rb
 
 == Note on Patches/Pull Requests
  
