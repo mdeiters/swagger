@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["mdeiters"]
   s.date = %q{2010-07-14}
-  s.description = %q{duck punches resque to use active record instead of redis}
+  s.description = %q{Duck punch Resque to use active record for backround jobs instead of redis}
   s.email = %q{mdeiters@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -30,13 +30,14 @@ Gem::Specification.new do |s|
      "spec/redis_impersonator_spec.rb",
      "spec/resque_extension_spec.rb",
      "spec/spec.opts",
-     "spec/spec_helper.rb"
+     "spec/spec_helper.rb",
+     "swagger.gemspec"
   ]
   s.homepage = %q{http://github.com/mdeiters/swagger}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}
-  s.summary = %q{duck punches resque to use active record instead of redis}
+  s.summary = %q{Everything Resque provides minus Redis}
   s.test_files = [
     "spec/redis_impersonator_spec.rb",
      "spec/resque_extension_spec.rb",
