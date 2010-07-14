@@ -4,6 +4,7 @@
  
  Resque is a great library for creating/running/administering background jobs. Redis is great too but may be overkill for just a few simple background jobs. Swagger marries the power and robustness of Resque with the trivial setup of delayed_job. 
 
+
  
 == Getting Started
 
