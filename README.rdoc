@@ -1,10 +1,9 @@
-= swagger
+= swagger = (Resque - Redis) + ActiveRecord
  
- (Resque - Redis) + ActiveRecord
+ Swagger allows you to use Resque full featured by only adding one table in your existing database.
  
  Resque is a great library for creating/running/administering background jobs. Redis is great too but may be overkill for just a few simple background jobs. Swagger marries the power and robustness of Resque with the trivial setup of delayed_job. 
- 
- This allows you to use Resque full featured by only adding one table in your existing database.
+
  
 == Getting Started
 
