@@ -6,17 +6,17 @@ Resque is a great library for creating/running/administering background jobs. Re
  
 == Getting Started
 
- 1. Add resque and swagger to your gem dependencies (order is important)
+=== 1. Add resque and swagger to your gem dependencies (order is important)
 
    config.gem 'resque'
    config.gem 'swagger'
 
- 2. In your rails app, create the file initializers/resque.rb with the following:
+=== 2. In your rails app, create the file initializers/resque.rb with the following:
 
    Resque.swagger! 
    Resque.connect_to_database YAML::load(ERB.new(IO.read(File.join(File.dirname(__FILE__), '..', 'database.yml'))).result)[RAILS_ENV]
     
- 3. Create an active record migration
+=== 3. Create an active record migration
     
    create_table :resque_values do |table|
      table.column :key,      :string
@@ -27,7 +27,7 @@ Resque is a great library for creating/running/administering background jobs. Re
    add_index :resque_values, :key
    add_index :resque_values, [:key, :key_type]
 
- NOTE: To start up the administration sinatra app with swagger, do the following: resque-web config/initializers/resque.rb
+=== NOTE: To start up the administration sinatra app with swagger, do the following: resque-web config/initializers/resque.rb
 
 == Note on Patches/Pull Requests
  
