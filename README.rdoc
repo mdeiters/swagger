@@ -11,8 +11,12 @@ Swagger marries the power and robustness of Resque with the trivial setup of del
 
 === 2. In your rails app, create the file initializers/resque.rb with the following:
 
-   Resque.swagger! 
-   Resque.connect_to_database YAML::load(ERB.new(IO.read(File.join(File.dirname(__FILE__), '..', 'database.yml'))).result)[RAILS_ENV]
+   environment = ENV['RAILS_ENV'] || 'development'
+   database    = YAML::load(ERB.new(IO.read(File.join(File.dirname(__FILE__), '..', 'database.yml'))).result)[environment]
+
+   require 'swagger'
+   Resque.swagger!
+   Resque.connect_to_database(database)
     
 === 3. Create an active record migration
     
