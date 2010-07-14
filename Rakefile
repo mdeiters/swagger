@@ -5,13 +5,15 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "swagger"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{duck punches resque to use active record instead of redis}
+    gem.description = %Q{duck punches resque to use active record instead of redis}
     gem.email = "mdeiters@gmail.com"
     gem.homepage = "http://github.com/mdeiters/swagger"
     gem.authors = ["mdeiters"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
+    gem.add_dependency "activerecord" #, "2.3.8"
+    gem.add_dependency "resque", "1.9.7"
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
