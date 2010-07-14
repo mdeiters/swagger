@@ -26,7 +26,7 @@ Swagger marries the power and robustness of Resque with the trivial setup of del
    add_index :resque_values, [:key, :key_type]
 
 
-==== NOTE: To start up the administration sinatra app with swagger, do the following: resque-web config/initializers/resque.rb
+==== NOTE: To start up the administration sinatra app with swagger try: resque-web config/initializers/resque.rb
 
 == Note on Patches/Pull Requests
  
