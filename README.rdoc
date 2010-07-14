@@ -1,6 +1,35 @@
 = swagger
+ 
+ (Resque - Redis) + ActiveRecord
+ 
+ Resque is a great library for creating/running/administering background jobs. Redis is great too but may be overkill for just a few simple background jobs. Swagger marries the power and robustness of Resque with the trivial setup of delayed_job. 
+ 
+ This allows you to use Resque full featured by only adding one table in your existing database.
+ 
+== Getting Started
 
-Description goes here.
+  1. Add resque and swagger to your gem dependencies (order is important)
+
+    config.gem 'resque'
+    config.gem 'swagger'
+
+  2. In your rails app, create the file initializers/resque.rb with the following:
+
+    Resque.swagger! 
+    Resque.connect_to_database YAML::load(ERB.new(IO.read(File.join(File.dirname(__FILE__), '..', 'database.yml'))).result)[RAILS_ENV]
+    
+  3. Create an active record migration
+  
+    create_table :resque_values do |table|
+      table.column :key,      :string
+      table.column :key_type, :string
+      table.column :value, :text
+    end
+  
+    add_index :resque_values, :key
+    add_index :resque_values, [:key, :key_type]
+
+  NOTE: To start up the administration sinatra app with swagger, do the following: resque-web config/initializers/resque.rb
 
 == Note on Patches/Pull Requests
  
@@ -14,4 +43,4 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2010 mdeiters. See LICENSE for details.
+Copyright (c) 2010 Matthew Deiters. See LICENSE for details.

@@ -15,6 +15,8 @@ Spec::Runner.configure do |config|
   
 end
 
+Resque.swagger!
+
 ActiveRecord::Base.establish_connection('adapter' => 'sqlite3', 'database' => 'test.db')
 
 ActiveRecord::Base.connection.drop_table :resque_values rescue puts "unable to drop resque_values, probably because it has not been created yet"

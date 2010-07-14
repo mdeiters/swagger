@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "swagger"
-    gem.summary = %Q{duck punches resque to use active record instead of redis}
-    gem.description = %Q{duck punches resque to use active record instead of redis}
+    gem.summary = %Q{Everything Resque provides minus Redis}
+    gem.description = %Q{Duck punch Resque to use active record for backround jobs instead of redis}
     gem.email = "mdeiters@gmail.com"
     gem.homepage = "http://github.com/mdeiters/swagger"
     gem.authors = ["mdeiters"]
