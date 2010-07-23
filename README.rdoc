@@ -31,7 +31,6 @@ Swagger marries the power and robustness of Resque with the trivial setup of del
    add_index :resque_values, :key
    add_index :resque_values, [:key, :key_type]
 
-
 == Note on Patches/Pull Requests
  
 * Fork the project.

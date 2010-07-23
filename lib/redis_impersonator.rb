@@ -84,13 +84,17 @@ class RedisImpersonator
   end
     
   def lrange(list_name, start_range, end_range)
-    values = ResqueValue.all(
-                :conditions => {
+    options = { :conditions => {
                   :key => list_name.to_s,
-                  :key_type=> LIST}, 
-                :offset => start_range, 
-                :limit => end_range)
+                  :key_type=> LIST}}
+    options.merge!(:limit => end_range, :offset => start_range) unless end_range < 0
+    values = ResqueValue.all(options)
     values.map(&:value)
+  end
+  
+  def lrem(list_name, count, value)
+    raise "Only supports count of 0 which means to remove all elements in list" if count != 0
+    ResqueValue.delete_all(:key => list_name.to_s, :key_type=> LIST, :value => value )
   end
   
   def lpop(list_name)

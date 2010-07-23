@@ -118,6 +118,22 @@ describe 'RedisImpersonator' do
       impersonator.lrange('some_queue', 0, 1).first.should == 'one'
       impersonator.lrange('some_queue', 2, 3).first.should == 'three'
     end
+    
+    it 'should get all results if you pass -1 to lrange' do
+      impersonator.rpush('some_queue', 'one')
+      impersonator.rpush('some_queue', 'two')
+      impersonator.rpush('some_queue', 'three')        
+      impersonator.lrange('some_queue', 0, -1).should include('one', 'two', 'three')
+    end
+    
+    it 'should remove items from queue' do
+      impersonator.rpush('some_queue', 'one')
+      impersonator.rpush('some_queue', 'two')
+      impersonator.rpush('some_queue', 'two')
+      impersonator.lrem('some_queue', 0, 'two').should == 2
+      impersonator.lrange('some_queue', 0, -1).should include('one')
+    end
+    
   end
   
   it 'should increment a value' do
