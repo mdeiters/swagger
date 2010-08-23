@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{swagger}
-  s.version = "1.2.0"
+  s.version = "1.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["mdeiters"]
-  s.date = %q{2010-07-22}
+  s.date = %q{2010-08-23}
   s.description = %q{Duck punch Resque to use active record for backround jobs instead of redis}
   s.email = %q{mdeiters@gmail.com}
   s.extra_rdoc_files = [
