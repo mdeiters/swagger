@@ -87,7 +87,10 @@ class RedisImpersonator
     options = { :conditions => {
                   :key => list_name.to_s,
                   :key_type=> LIST}}
-    options.merge!(:limit => end_range, :offset => start_range) unless end_range < 0
+    unless end_range < 0
+      limit = end_range - start_range + 1
+      options.merge!(:limit => limit, :offset => start_range)
+    end
     values = ResqueValue.all(options)
     values.map(&:value)
   end
@@ -109,6 +112,12 @@ class RedisImpersonator
   
   def rpush(list_name, value)
     ResqueValue.create!(:key => list_name.to_s, :key_type => LIST, :value => value.to_s)
+  end
+  
+  def ltrim(list_name, start_range, end_range)
+    limit = end_range - start_range + 1
+    ids = ResqueValue.all(:select => "id", :conditions => {:key => list_name}, :offset => start_range, :limit => limit)
+    ResqueValue.delete_all(["id NOT IN (?)", ids.collect{|i| i.id}])
   end
   
   def keys(pattern = '*')

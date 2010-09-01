@@ -134,6 +134,19 @@ describe 'RedisImpersonator' do
       impersonator.lrange('some_queue', 0, -1).should include('one')
     end
     
+    it "should trim according to the specifed start and end" do
+      1.upto(6){|i| impersonator.rpush('some_queue', i)}
+      impersonator.ltrim('some_queue', 1, 3)
+      impersonator.llen('some_queue').should == 3
+      impersonator.lrange('some_queue', 0, 2).should == ["2","3","4"]
+    end
+    
+    it "should get a range of values" do
+      1.upto(6){|i| impersonator.rpush('some_queue', i)}
+      impersonator.lrange('some_queue', 0, 5).should == ['1','2','3','4','5','6']
+      impersonator.lrange('some_queue', 1, 3).should == ['2','3','4']
+    end
+    
   end
   
   it 'should increment a value' do
