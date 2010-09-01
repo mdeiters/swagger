@@ -141,6 +141,13 @@ describe 'RedisImpersonator' do
       impersonator.lrange('some_queue', 0, 2).should == ["2","3","4"]
     end
     
+    it "should not affect other keys when trimming" do
+      1.upto(3){|i| impersonator.rpush('some_queue', i)}
+      impersonator.set('something_else', 'independent value')
+      impersonator.ltrim('some_queue', 0, 0)
+      impersonator.get('something_else').should == 'independent value'
+    end
+    
     it "should get a range of values" do
       1.upto(6){|i| impersonator.rpush('some_queue', i)}
       impersonator.lrange('some_queue', 0, 5).should == ['1','2','3','4','5','6']

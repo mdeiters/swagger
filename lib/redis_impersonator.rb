@@ -117,7 +117,7 @@ class RedisImpersonator
   def ltrim(list_name, start_range, end_range)
     limit = end_range - start_range + 1
     ids = ResqueValue.all(:select => "id", :conditions => {:key => list_name}, :offset => start_range, :limit => limit)
-    ResqueValue.delete_all(["id NOT IN (?)", ids.collect{|i| i.id}])
+    ResqueValue.delete_all(["key = ? AND id NOT IN (?)", list_name, ids.collect{|i| i.id}])
   end
   
   def keys(pattern = '*')
