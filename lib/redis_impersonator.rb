@@ -99,7 +99,7 @@ class RedisImpersonator
   
   def lpop(list_name)
     ResqueValue.transaction do
-      last = ResqueValue.last(:conditions => {:key => list_name.to_s, :key_type => LIST})
+      last = ResqueValue.last(:conditions => {:key => list_name.to_s, :key_type => LIST}, :lock => true)
       if last
         last.destroy
         return last.value
