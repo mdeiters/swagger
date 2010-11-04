@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'Resque' do
   
   it 'swaps redis implementation with impersonator' do
-    Resque.redis.should be_a(RedisImpersonator)
+    Resque.redis.should be_a(Swagger::RedisImpersonator)
   end  
   
   it 'can connect to the database' do

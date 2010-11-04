@@ -1,8 +1,7 @@
 require 'spec_helper'
 
 describe 'RedisImpersonator' do
-  let(:impersonator) { RedisImpersonator.new }
-
+  let(:impersonator) { Swagger::RedisImpersonator.new }
   
   it 'responds to info' do
     impersonator.info.should_not be_nil
