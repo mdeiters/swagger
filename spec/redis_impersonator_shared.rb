@@ -1,8 +1,16 @@
 require 'spec_helper'
 
-describe 'RedisImpersonator' do
-  let(:impersonator) { Swagger::RedisImpersonator.new }
-  
+shared_examples_for "RedisImpersonator" do
+  before :all do
+    @klass = Swagger.impersonator_klass
+  end
+
+  let(:impersonator) { @klass.new }
+
+  before :each do
+    @klass.clear
+  end
+
   it 'responds to info' do
     impersonator.info.should_not be_nil
   end
@@ -19,7 +27,7 @@ describe 'RedisImpersonator' do
   
     it 'can create new key values' do
       impersonator.set('key', 'value').should == 'value'
-      ResqueValue.first.value.should == 'value'
+      Swagger::ActiveRecord::ResqueValue.first.value.should == 'value'
     end
   
     it 'can delete key values' do
@@ -50,7 +58,7 @@ describe 'RedisImpersonator' do
     it 'can add workers to the queue' do
       worker = Resque::Worker.new(queues = ['queue1'])
       impersonator.sadd(:workers, worker)
-      ResqueValue.first.value.should == worker.to_s
+      Swagger::ActiveRecord::ResqueValue.first.value.should == worker.to_s
     end
       
     it 'returns all values in the workers set' do
