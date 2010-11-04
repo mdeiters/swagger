@@ -2,12 +2,10 @@ require 'rubygems'
 require 'resque'
 require 'swagger'
 
-Spec::Runner.configure do |config|
-
-  config.prepend_before :each do
+RSpec.configure do |config|
+  config.before :each do
     ResqueValue.delete_all
   end  
-  
 end
 
 Resque.swagger!
