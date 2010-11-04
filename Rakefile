@@ -14,7 +14,7 @@ begin
     gem.add_development_dependency "sqlite3-ruby"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
     gem.add_dependency "activerecord" #, "2.3.8"
-    gem.add_dependency "resque", "1.9.7"
+    gem.add_dependency "resque"
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
