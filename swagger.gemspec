@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{swagger}
-  s.version = "1.3.2"
+  s.version = "1.4.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["mdeiters"]
-  s.date = %q{2010-09-27}
+  s.date = %q{2011-01-14}
   s.description = %q{Duck punch Resque to use active record for backround jobs instead of redis}
   s.email = %q{mdeiters@gmail.com}
   s.extra_rdoc_files = [
@@ -51,16 +51,16 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<rspec>, [">= 1.2.9"])
       s.add_runtime_dependency(%q<activerecord>, [">= 0"])
-      s.add_runtime_dependency(%q<resque>, ["= 1.9.7"])
+      s.add_runtime_dependency(%q<resque>, [">= 1.10.0"])
     else
       s.add_dependency(%q<rspec>, [">= 1.2.9"])
       s.add_dependency(%q<activerecord>, [">= 0"])
-      s.add_dependency(%q<resque>, ["= 1.9.7"])
+      s.add_dependency(%q<resque>, [">= 1.10.0"])
     end
   else
     s.add_dependency(%q<rspec>, [">= 1.2.9"])
     s.add_dependency(%q<activerecord>, [">= 0"])
-    s.add_dependency(%q<resque>, ["= 1.9.7"])
+    s.add_dependency(%q<resque>, [">= 1.10.0"])
   end
 end
 
