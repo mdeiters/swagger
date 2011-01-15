@@ -11,7 +11,6 @@ begin
     gem.homepage = "http://github.com/mdeiters/swagger"
     gem.authors = ["mdeiters"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
     gem.add_dependency "activerecord" #, "2.3.8"
     gem.add_dependency "resque", ">= 1.10.0"
   end
