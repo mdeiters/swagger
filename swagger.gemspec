@@ -19,8 +19,11 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.6}
   s.summary = %q{Everything Resque provides minus Redis}
 
-  s.add_development_dependency(%q<rspec>, [">= 2.4.0"])
-  s.add_runtime_dependency(%q<activerecord>, [">= 0"])
-  s.add_runtime_dependency(%q<resque>, [">= 1.10.0"])
+
+  s.add_runtime_dependency("activerecord", ">= 0")
+  s.add_runtime_dependency("resque", ">= 1.10.0")
+
+  s.add_development_dependency("rake", "~> 0.8.7")
+  s.add_development_dependency("rspec", ">= 2.4.0")
 end
 
