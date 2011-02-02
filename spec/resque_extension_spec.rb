@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe 'Resque' do
-
   it 'swaps redis implementation with impersonator' do
     Resque.redis.should be_a(RedisImpersonator)
   end

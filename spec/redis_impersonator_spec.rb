@@ -3,7 +3,6 @@ require 'spec_helper'
 describe 'RedisImpersonator' do
   let(:impersonator) { RedisImpersonator.new }
 
-
   it 'responds to info' do
     impersonator.info.should_not be_nil
   end
@@ -42,7 +41,7 @@ describe 'RedisImpersonator' do
       impersonator.keys('*').should include('key-1', 'key-2')
     end
 
-    it 'raies error when pattern is not *' do
+    it 'raises error when pattern is not *' do
       lambda{impersonator.keys('something not *')}.should raise_error
     end
   end
