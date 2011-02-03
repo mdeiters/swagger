@@ -35,7 +35,7 @@ module Swagger
         Helpers.select_values(
           [].tap do |sql|
             sql << 'SELECT value FROM resque_values'
-            sql << "WHERE key = #{key}"
+            sql << "WHERE 'key' = '#{key}'"
             sql << "AND score BETWEEN #{min} AND #{max}"
             sql << 'ORDER BY score'
             if limit = options[:limit]
