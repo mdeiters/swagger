@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = %q{swagger}
-  s.version = "1.4.0"
+  s.version = Swagger.version
 
   s.required_rubygems_version = ">= 1.3.6"
   s.authors = ["mdeiters", "Justin Ko"]
