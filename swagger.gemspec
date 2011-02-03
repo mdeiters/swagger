@@ -1,3 +1,5 @@
+require File.expand_path('../lib/swagger/version', __FILE__)
+
 Gem::Specification.new do |s|
   s.name = %q{swagger}
   s.version = Swagger.version
