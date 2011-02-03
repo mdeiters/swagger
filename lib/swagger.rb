@@ -1,4 +1,7 @@
 require 'active_record'
 require 'resque_value'
-require 'redis_impersonator'
+require 'swagger/redis'
 require 'resque_extension'
+
+module Swagger
+end

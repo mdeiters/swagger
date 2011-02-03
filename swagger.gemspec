@@ -3,7 +3,7 @@ Gem::Specification.new do |s|
   s.version = "1.4.0"
 
   s.required_rubygems_version = ">= 1.3.6"
-  s.authors = ["mdeiters"]
+  s.authors = ["mdeiters", "Justin Ko"]
   s.date = %q{2011-01-14}
   s.description = %q{Duck punch Resque to use active record for backround jobs instead of redis}
   s.email = %q{mdeiters@gmail.com}
