@@ -29,8 +29,8 @@ module Swagger
       end
 
       def zrangebyscore(key, min, max, options = {})
-        min = ResqueValue.minimum(:score, :conditions => conditions(key)) if min == '-inf'
-        max = ResqueValue.maximum(:score, :conditions => conditions(key)) if max == '+inf'
+        min = ResqueValue.minimum(:score, :conditions => conditions(key)) || 0 if min == '-inf'
+        max = ResqueValue.maximum(:score, :conditions => conditions(key)) || 0 if max == '+inf'
 
         Helpers.select_values(
           [].tap do |sql|
