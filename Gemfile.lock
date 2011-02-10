@@ -54,9 +54,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord
   rake (~> 0.8.7)
-  resque (>= 1.10.0)
   rspec (>= 2.4.0)
   sqlite3 (>= 1.3.3)
   swagger!
