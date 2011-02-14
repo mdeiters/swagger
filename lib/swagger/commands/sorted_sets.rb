@@ -6,7 +6,7 @@ module Swagger
 
       def zadd(key, score, value)
         record = ResqueValue.find_or_initialize_by_key_and_key_type_and_value(
-          key, KEY_TYPE, value)
+          key.to_s, KEY_TYPE, value)
         record.score = score
         record.save!
         record
