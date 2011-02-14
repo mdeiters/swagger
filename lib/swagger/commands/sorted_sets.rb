@@ -48,7 +48,7 @@ module Swagger
     private
 
       def conditions(key)
-        { :key => key, :key_type => KEY_TYPE }
+        { :key => key.to_s, :key_type => KEY_TYPE }
       end
 
     end
